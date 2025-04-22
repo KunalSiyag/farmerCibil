@@ -7,7 +7,21 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useWeb3 } from "@/context/web3-context"
 import { Button } from "@/components/ui/button"
-import { Home, Award, Coins, BarChart3, Menu, X, LogOut } from "lucide-react"
+import {
+  Home,
+  Award,
+  Coins,
+  BarChart3,
+  Menu,
+  X,
+  LogOut,
+  Percent,
+  ShoppingBag,
+  Truck,
+  Trophy,
+  Leaf,
+  DollarSign,
+} from "lucide-react"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
@@ -39,6 +53,31 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       href: "/rewards",
       icon: <Coins className="h-5 w-5" />,
     },
+    {
+      name: "Subsidies",
+      href: "/perks",
+      icon: <Percent className="h-5 w-5" />,
+    },
+    {
+      name: "Marketplace",
+      href: "/marketplace",
+      icon: <ShoppingBag className="h-5 w-5" />,
+    },
+    {
+      name: "Equipment Rentals",
+      href: "/rentals",
+      icon: <Truck className="h-5 w-5" />,
+    },
+    {
+      name: "Carbon Credits",
+      href: "/carbon",
+      icon: <Leaf className="h-5 w-5" />,
+    },
+    {
+      name: "Loans",
+      href: "/loans",
+      icon: <DollarSign className="h-5 w-5" />,
+    },
   ]
 
   return (
@@ -62,7 +101,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             <p className="text-sm text-muted-foreground">Sustainable Farming Platform</p>
           </div>
 
-          <nav className="flex-1 p-4 space-y-1">
+          <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -96,4 +135,3 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     </div>
   )
 }
-

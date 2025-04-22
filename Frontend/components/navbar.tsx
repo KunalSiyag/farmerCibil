@@ -7,7 +7,7 @@ import { Leaf } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 export default function Navbar() {
-  const { address, isConnected } = useWeb3()
+  const { account, isConnected } = useWeb3()
   const pathname = usePathname()
 
   return (
@@ -49,7 +49,7 @@ export default function Navbar() {
           {isConnected ? (
             <div className="hidden md:block">
               <p className="text-xs text-gray-500 dark:text-gray-400">Connected:</p>
-              <p className="text-xs font-mono truncate max-w-[120px]">{address}</p>
+              <p className="text-xs font-mono truncate max-w-[120px]">{account}</p>
             </div>
           ) : (
             <Link href="/login">
@@ -61,4 +61,3 @@ export default function Navbar() {
     </header>
   )
 }
-
